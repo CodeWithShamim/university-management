@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import app from "./app";
 import dbConnection from "./utils/dbConnect";
 
