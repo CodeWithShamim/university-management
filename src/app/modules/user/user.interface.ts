@@ -1,8 +1,9 @@
+import { Schema } from "mongoose";
+
 export interface IUser {
-  id: string;
-  role: string;
+  role: "student" | "admin" | "faculty";
   password: string;
   createdAt: Date;
   updatedAt: Date;
-  userType: "studentId" | "adminId" | "facultyId";
+  userId: Schema.Types.ObjectId;
 }
