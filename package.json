@@ -1,15 +1,15 @@
 {
-  "name": "mission-3-(university-management-software)",
+  "name": "university-management-software",
   "version": "1.0.0",
   "description": "https://docs.google.com/document/d/1X8kOM9PLnja01jIg1ImTwevUIo2FQsmwf3wRduwV7O0/edit?usp=sharing",
-  "main": "index.js",
+  "main": "src/server.ts",
   "scripts": {
     "start": "node src/server.ts",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shamim Islam",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.13",

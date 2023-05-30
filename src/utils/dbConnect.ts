@@ -1,13 +1,8 @@
 import mongoose from "mongoose";
-
-const dbURL: string | undefined = process.env.DB_URL;
+import config from "../config";
 
 const dbConnection = async () => {
-  if (!dbURL) {
-    console.log("DB url not found.");
-    return;
-  }
-  await mongoose.connect(dbURL);
+  await mongoose.connect(config.database_url as string);
   console.log("Successfully databse connected.");
 };
 

@@ -1,13 +1,12 @@
 import app from "./app";
+import config from "./config";
 import dbConnection from "./utils/dbConnect";
-
-const port: string | undefined = process.env.PORT;
 
 async function main() {
   await dbConnection();
 
-  app.listen(port, () => {
-    console.log("Server listening to port", port);
+  app.listen(config.port, () => {
+    console.log("Server listening to port", config.port);
   });
 }
 
