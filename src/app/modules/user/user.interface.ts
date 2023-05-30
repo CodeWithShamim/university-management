@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-export interface IUser {
+export type IUser = {
   role: "student" | "admin" | "faculty";
   password: string;
   createdAt: Date;
