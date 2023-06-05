@@ -1,7 +1,5 @@
-import { Schema } from 'mongoose'
-
 export type IUser = {
+  id: string
   role: 'student' | 'admin' | 'faculty'
   password: string
-  userId: Schema.Types.ObjectId
 }

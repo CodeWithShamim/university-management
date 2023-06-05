@@ -3,6 +3,10 @@ import { IUser } from './user.interface'
 
 const userSchema = new Schema<IUser>(
   {
+    id: {
+      type: String,
+      required: true,
+    },
     role: {
       type: String,
       enum: ['student', 'admin', 'faculty'],
@@ -10,10 +14,6 @@ const userSchema = new Schema<IUser>(
     },
     password: {
       type: String,
-      required: true,
-    },
-    userId: {
-      type: Schema.Types.ObjectId,
       required: true,
     },
   },
