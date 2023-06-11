@@ -8,4 +8,4 @@ https://drive.google.com/file/d/1CuHCDJArhkec1_Bp7RQminUk8RwYdxYi/view?usp=shari
 - Prettier
 - EsLint
 - Husky
-- Lint-stage
+- Lint-staged
