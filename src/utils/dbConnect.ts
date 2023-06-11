@@ -3,7 +3,7 @@ import config from '../config'
 
 const dbConnection = async () => {
   await mongoose.connect(config.database_url as string)
-  console.log('Successfully databse connected.')
+  console.log('Successfully database connected.')
 }
 
 export default dbConnection
