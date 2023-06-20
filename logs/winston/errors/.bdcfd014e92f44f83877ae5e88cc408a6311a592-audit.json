@@ -1,20 +1,20 @@
 {
-    "keep": {
-        "days": true,
-        "amount": 1
+  "keep": {
+    "days": true,
+    "amount": 1
+  },
+  "auditLog": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\.bdcfd014e92f44f83877ae5e88cc408a6311a592-audit.json",
+  "files": [
+    {
+      "date": 1687252107564,
+      "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-20-15-ERROR.log",
+      "hash": "25393081cba537596d5aba2ffcb1b30c76bdbc7217802b53a60ed00f95e8f62b"
     },
-    "auditLog": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\.bdcfd014e92f44f83877ae5e88cc408a6311a592-audit.json",
-    "files": [
-        {
-            "date": 1687252107564,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-20-15-ERROR.log",
-            "hash": "25393081cba537596d5aba2ffcb1b30c76bdbc7217802b53a60ed00f95e8f62b"
-        },
-        {
-            "date": 1687257251829,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-20-16-ERROR.log",
-            "hash": "863c836205ce836734a89927017ee0295803337db1fb99f20b4b7224aa7635e7"
-        }
-    ],
-    "hashType": "sha256"
+    {
+      "date": 1687257251829,
+      "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-20-16-ERROR.log",
+      "hash": "863c836205ce836734a89927017ee0295803337db1fb99f20b4b7224aa7635e7"
+    }
+  ],
+  "hashType": "sha256"
 }

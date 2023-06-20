@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose'
-import { IStudent } from './student.interface'
+import mongoose, { Schema } from 'mongoose';
+import { IStudent } from './student.interface';
 
 const studentSchema = new Schema<IStudent>({
   name: {
@@ -53,8 +53,8 @@ const studentSchema = new Schema<IStudent>({
     type: String,
     required: true,
   },
-})
+});
 
-const Student = mongoose.model<IStudent>('Student', studentSchema)
+const Student = mongoose.model<IStudent>('Student', studentSchema);
 
-export default Student
+export default Student;
