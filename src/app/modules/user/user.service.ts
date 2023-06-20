@@ -9,7 +9,9 @@ const createUser = async (user: IUser): Promise<IUser> => {
   user.id = id;
 
   // default role
-  user.role = 'student';
+  if (!user.role) {
+    user.role = 'student';
+  }
 
   // default password
   if (!user.password) {
