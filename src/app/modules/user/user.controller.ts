@@ -1,14 +1,18 @@
 import { Request, Response } from 'express';
+import httpStatus from 'http-status';
 import catchAsync from '../../../utils/catchAsync';
+import sendReponse from '../../../utils/sendResponse';
+import { IUser } from './user.interface';
 import { UserService } from './user.service';
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const user = req.body;
   const result = await UserService.createUser(user);
 
-  res.status(200).json({
+  sendReponse<IUser>(res, {
     success: true,
-    message: 'New user create success.',
+    statusCode: httpStatus.OK,
+    message: 'User created successfully !',
     data: result,
   });
 });
