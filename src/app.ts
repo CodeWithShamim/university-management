@@ -23,9 +23,9 @@ app.use('/api/v1', routes);
 
 // testing error
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-app.get('/error', async (req: Request, res: Response) => {
-  Promise.reject(new Error('Unhandled Promise Rejection'));
-});
+// app.get('/error', async (req: Request, res: Response) => {
+//   Promise.reject(new Error('Unhandled Promise Rejection'));
+// });
 
 // global error handler
 app.use(globalErrorHandler);
