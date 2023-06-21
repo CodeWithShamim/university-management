@@ -49,6 +49,16 @@
             "date": 1687284752839,
             "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-21-00-ERROR.log",
             "hash": "fd894228fd0825138b20612627ade5d128b004f32ac6f988e759843dcfe47dcb"
+        },
+        {
+            "date": 1687326410039,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-21-11-ERROR.log",
+            "hash": "925760b7a5c32129304e3904cb6ab86ce3df100c40c650278d29731f6c099902"
+        },
+        {
+            "date": 1687328711417,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-21-12-ERROR.log",
+            "hash": "0b559b78488bc2c828f5c340a139203dd3514db0a690e4f907c0745d8754c9a7"
         }
     ],
     "hashType": "sha256"

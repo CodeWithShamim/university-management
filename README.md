@@ -9,3 +9,10 @@ https://drive.google.com/file/d/1CuHCDJArhkec1_Bp7RQminUk8RwYdxYi/view?usp=shari
 - EsLint
 - Husky
 - Lint-staged
+
+# important step
+- handle global error
+- catchAsync
+- sendResponse
+- not found 
+- unhandled rejection || uncaught exceptions
