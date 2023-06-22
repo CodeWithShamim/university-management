@@ -14,5 +14,6 @@ https://drive.google.com/file/d/1CuHCDJArhkec1_Bp7RQminUk8RwYdxYi/view?usp=shari
 - handle global error
 - catchAsync
 - sendResponse
+- optimize route & controllers
 - not found 
 - unhandled rejection || uncaught exceptions
