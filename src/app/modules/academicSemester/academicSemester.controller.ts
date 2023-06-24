@@ -32,7 +32,8 @@ const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Academic semesters retrieved successfully!',
-    data: result,
+    meta: result.meta,
+    data: result.result,
   });
 });
 
