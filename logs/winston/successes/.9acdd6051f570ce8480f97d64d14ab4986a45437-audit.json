@@ -6,29 +6,14 @@
     "auditLog": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\.9acdd6051f570ce8480f97d64d14ab4986a45437-audit.json",
     "files": [
         {
-            "date": 1687356533280,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-21-20-SUCCESS.log",
-            "hash": "9005522b89f890823ac821f212571140a46b0b9fed1b6b8de13b3ed3cbfcc697"
+            "date": 1687522674460,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-23-18-SUCCESS.log",
+            "hash": "dc458f959d17846fc64d34c7062f5a0b4c067b13ef85e1f7426f9d794819fd90"
         },
         {
-            "date": 1687359692906,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-21-21-SUCCESS.log",
-            "hash": "efc140d77fbf5c27c373d37d69a7feff0a32cf0a24336061511e714eea051c65"
-        },
-        {
-            "date": 1687363418660,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-21-22-SUCCESS.log",
-            "hash": "ff452a5032de4181496d23e5da97bb5de077c01a28d82b92c974b6d526c8440d"
-        },
-        {
-            "date": 1687431737161,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-22-17-SUCCESS.log",
-            "hash": "e0f97eaf7ea8c731f5cf4a05952192a1d1e14417faf19531875fad7976e8087e"
-        },
-        {
-            "date": 1687439866685,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-22-19-SUCCESS.log",
-            "hash": "871e5aa6522a3127dc57924466df370906a2912185b54964d88aac8c70fd9339"
+            "date": 1687590944408,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-24-13-SUCCESS.log",
+            "hash": "374a230ec7fbe7ee6dda57d57e098cc18de180c24e9816216063669c0398f924"
         }
     ],
     "hashType": "sha256"
