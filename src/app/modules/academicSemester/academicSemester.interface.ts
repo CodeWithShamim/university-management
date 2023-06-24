@@ -26,3 +26,12 @@ export type IAcademicSemester = {
 };
 
 export type AcademicSemesterModel = Model<IAcademicSemester>;
+
+export type IAcademicSemesterFilters = {
+  title: IAcademicSemesterTitles;
+  year: string;
+  code: IAcademicSemesterCodes;
+  startMonth: IAcademicSemesterMonths;
+  endMonth: IAcademicSemesterMonths;
+  searchTerm: string;
+};
