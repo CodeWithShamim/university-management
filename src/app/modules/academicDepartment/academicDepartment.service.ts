@@ -13,7 +13,9 @@ import AcademicDepartment from './academicDepartment.model';
 const createAcademicDepartment = async (
   payload: IAcademicDepartment
 ): Promise<IAcademicDepartment> => {
-  const academicDepartment = await AcademicDepartment.create(payload);
+  const academicDepartment = (
+    await AcademicDepartment.create(payload)
+  ).populate('academicFaculty');
   return academicDepartment;
 };
 
@@ -57,7 +59,8 @@ const getAllDepartments = async (
   const Departments = await AcademicDepartment.find(whereConditions)
     .sort(sortCondition)
     .skip(skip)
-    .limit(limit);
+    .limit(limit)
+    .populate('academicFaculty');
 
   const total = await AcademicDepartment.countDocuments(whereConditions);
 
@@ -74,7 +77,9 @@ const getAllDepartments = async (
 const getSingleDepartment = async (
   id: string
 ): Promise<IAcademicDepartment | null> => {
-  const Department = await AcademicDepartment.findById(id);
+  const Department = await AcademicDepartment.findById(id).populate(
+    'academicFaculty'
+  );
   return Department;
 };
 
@@ -89,14 +94,16 @@ const updateDepartment = async (
       new: true,
       runValidators: true,
     }
-  );
+  ).populate('academicFaculty');
   return Department;
 };
 
 const deleteDepartment = async (
   id: string
 ): Promise<IAcademicDepartment | null> => {
-  const Department = await AcademicDepartment.findOneAndDelete({ _id: id });
+  const Department = await AcademicDepartment.findOneAndDelete({
+    _id: id,
+  }).populate('academicFaculty');
   return Department;
 };
 
