@@ -19,7 +19,7 @@ const createStudent = async (user: IUser): Promise<IUser> => {
 
   // default password
   if (!user.password) {
-    user.password = config.default_user_pass as string;
+    user.password = config.default_student_pass as string;
   }
 
   const newUser = await User.create(user);
@@ -40,7 +40,7 @@ const createFaculty = async (user: IUser): Promise<IUser> => {
 
   // default password
   if (!user.password) {
-    user.password = config.default_user_pass as string;
+    user.password = config.default_faculty_pass as string;
   }
 
   const newUser = await User.create(user);
@@ -61,7 +61,7 @@ const createAdmin = async (user: IUser): Promise<IUser> => {
 
   // default password
   if (!user.password) {
-    user.password = config.default_user_pass as string;
+    user.password = config.default_admin_pass as string;
   }
 
   const newUser = await User.create(user);
