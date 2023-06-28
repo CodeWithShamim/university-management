@@ -5,18 +5,44 @@ import sendReponse from '../../../utils/sendResponse';
 import { IUser } from './user.interface';
 import { UserService } from './user.service';
 
-const createUser = catchAsync(async (req: Request, res: Response) => {
+const createStudent = catchAsync(async (req: Request, res: Response) => {
   const user = req.body;
-  const result = await UserService.createUser(user);
+  const result = await UserService.createStudent(user);
 
   sendReponse<IUser>(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: 'User created successfully !',
+    message: 'Student created successfully !',
+    data: result,
+  });
+});
+
+const createFaculty = catchAsync(async (req: Request, res: Response) => {
+  const user = req.body;
+  const result = await UserService.createFaculty(user);
+
+  sendReponse<IUser>(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Faculty created successfully !',
+    data: result,
+  });
+});
+
+const createAdmin = catchAsync(async (req: Request, res: Response) => {
+  const user = req.body;
+  const result = await UserService.createAdmin(user);
+
+  sendReponse<IUser>(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Admin created successfully !',
     data: result,
   });
 });
 
 export const UserController = {
-  createUser,
+  createStudent,
+  createFaculty,
+  createAdmin,
 };
