@@ -6,11 +6,6 @@
     "auditLog": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\.9acdd6051f570ce8480f97d64d14ab4986a45437-audit.json",
     "files": [
         {
-            "date": 1687845605285,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-27-12-SUCCESS.log",
-            "hash": "a3b0968bdbf22b07d9a049e1de7dc3056ed324884c00eee8ced680d2ecf4f6e5"
-        },
-        {
             "date": 1687869768070,
             "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-27-18-SUCCESS.log",
             "hash": "09b21eb702915e8ab615d74f28e9c43221bebca9cab5cc49c8679a2304084736"
@@ -29,6 +24,21 @@
             "date": 1687928426258,
             "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-28-11-SUCCESS.log",
             "hash": "9b4da801c5fbf75c294112e005914e4e2e02495e449e0708047cac4aeef36651"
+        },
+        {
+            "date": 1687932303631,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-28-12-SUCCESS.log",
+            "hash": "29f747f1d7b3a2be77af920c417af91d9fa77b988624fddfa1b02a117d5b411e"
+        },
+        {
+            "date": 1687941321046,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-28-14-SUCCESS.log",
+            "hash": "f1061283312ff9a5ad00493821ed61c044dfb0c9a3d4b3a5d31f055daf73a6e6"
+        },
+        {
+            "date": 1687943270928,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\successes\\UM--2023-06-28-15-SUCCESS.log",
+            "hash": "0dfc4f3caabf073ea08e39e05ac83d9fef10e0ed8b9b7a2c4dce81ce024995fd"
         }
     ],
     "hashType": "sha256"
