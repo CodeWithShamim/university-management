@@ -21,7 +21,11 @@ const generateUserId = async (
   role: UserRole,
   academicSemester: IAcademicSemester
 ): Promise<string | undefined> => {
-  const currentId = (await findLastUserId(role)) || String(0).padStart(5, '0');
+  let currentId = await findLastUserId(role);
+
+  if (!currentId) {
+    currentId = String(0).padStart(5, '0');
+  }
 
   //increment by 1
   let incrementedId;

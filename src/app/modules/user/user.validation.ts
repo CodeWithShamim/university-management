@@ -42,7 +42,7 @@ const createStudentZodSchema = z.object({
       presentAddress: z.string({
         required_error: 'Present address is required',
       }),
-      parmanentAddress: z.string({
+      permanentAddress: z.string({
         required_error: 'Parmanent address is required',
       }),
       bloodGroup: z.enum([...BloodGroup] as [string, ...string[]]).optional(),
@@ -141,7 +141,7 @@ const createFacultyZodSchema = z.object({
       presentAddress: z.string({
         required_error: 'Present address is required',
       }),
-      parmanentAddress: z.string({
+      permanentAddress: z.string({
         required_error: 'Parmanent address is required',
       }),
       bloodGroup: z.enum([...BloodGroup] as [string, ...string[]]).optional(),
@@ -201,7 +201,7 @@ const createAdminZodSchema = z.object({
       presentAddress: z.string({
         required_error: 'Present address is required',
       }),
-      parmanentAddress: z.string({
+      permanentAddress: z.string({
         required_error: 'Parmanent address is required',
       }),
       bloodGroup: z.enum([...BloodGroup] as [string, ...string[]]).optional(),

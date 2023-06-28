@@ -6,8 +6,8 @@ import { IUser } from './user.interface';
 import { UserService } from './user.service';
 
 const createStudent = catchAsync(async (req: Request, res: Response) => {
-  const user = req.body;
-  const result = await UserService.createStudent(user);
+  const { student, ...userData } = req.body;
+  const result = await UserService.createStudent(student, userData);
 
   sendReponse<IUser>(res, {
     success: true,
