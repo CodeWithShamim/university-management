@@ -79,6 +79,23 @@ const createStudent = async (
     throw error;
   }
 
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'student',
+      populate: [
+        {
+          path: 'academicSemester',
+        },
+        {
+          path: 'academicDepartment',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+  }
+
   return newUserAllData;
 };
 
@@ -136,6 +153,20 @@ const createFaculty = async (
     throw error;
   }
 
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'faculty',
+      populate: [
+        {
+          path: 'academicDepartment',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+  }
+
   return newUserAllData;
 };
 
@@ -188,6 +219,17 @@ const createAdmin = async (
     seassion.abortTransaction();
     seassion.endSession();
     throw error;
+  }
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'admin',
+      populate: [
+        {
+          path: 'managementDepartment',
+        },
+      ],
+    });
   }
 
   return newUserAllData;
