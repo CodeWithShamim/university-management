@@ -65,7 +65,7 @@ const adminSchema = new Schema<IAdmin, IAdminModel>(
     managementDepartment: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'AcademicDepartment',
+      ref: 'ManagementDepartment',
     },
     profileImage: String,
   },
