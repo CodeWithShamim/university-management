@@ -19,7 +19,7 @@ const findLastUserId = async (role: UserRole): Promise<string | undefined> => {
 
 const generateUserId = async (
   role: UserRole,
-  academicSemester: IAcademicSemester
+  academicSemester?: IAcademicSemester
 ): Promise<string | undefined> => {
   let currentId = await findLastUserId(role);
 

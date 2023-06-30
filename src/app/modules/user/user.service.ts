@@ -5,6 +5,8 @@ import ApiError from '../../../errors/ApiError';
 import generateUserId from '../../../utils/generateUserId';
 import { IAcademicSemester } from '../academicSemester/academicSemester.interface';
 import AcademicSemester from '../academicSemester/academicSemester.model';
+import { IFaculty } from '../faculty/faculty.interface';
+import Faculty from '../faculty/faculty.model';
 import { IStudent } from '../student/student.interface';
 import Student from '../student/student.model';
 import { IUser } from './user.interface';
@@ -79,28 +81,16 @@ const createStudent = async (
 };
 
 const createFaculty = async (
-  student: IStudent,
+  faculty: IFaculty,
   user: IUser
 ): Promise<IUser | null> => {
   // default password
   if (!user.password) {
-    user.password = config.default_student_pass as string;
+    user.password = config.default_faculty_pass as string;
   }
 
   // set role
-  user.role = 'student';
-
-  // generate user id
-  const academicSemester = (await AcademicSemester.findById(
-    student.academicSemester
-  ).lean()) as IAcademicSemester;
-
-  if (!academicSemester) {
-    throw new ApiError(
-      httpStatus.BAD_REQUEST,
-      'Failed to find academic semester'
-    );
-  }
+  user.role = 'faculty';
 
   let newUserAllData = null;
   const seassion = await mongoose.startSession();
@@ -108,24 +98,25 @@ const createFaculty = async (
     seassion.startTransaction();
 
     // step-1
-    const id = await generateUserId(user.role, academicSemester);
+    const id = await generateUserId(user.role);
     if (!id) {
-      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create student id');
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        'Failed to generate faculty id'
+      );
     }
 
     user.id = id;
-    student.id = id;
+    faculty.id = id;
 
     // step-2
-    const newStudent = await Student.create([student], { seassion });
-    if (!newStudent.length) {
-      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create student');
+    const newFaculty = await Faculty.create([faculty], { seassion });
+    if (!newFaculty.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create faculty');
     }
 
-    // console.log(newStudent, 'newStudent');
-
-    // set student _id into user.student
-    user.student = newStudent[0]._id;
+    // set faculty _id into user.faculty
+    user.faculty = newFaculty[0]._id;
 
     // step-3
     const newUser = await User.create([user], { seassion });

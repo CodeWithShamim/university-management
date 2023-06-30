@@ -18,8 +18,8 @@ const createStudent = catchAsync(async (req: Request, res: Response) => {
 });
 
 const createFaculty = catchAsync(async (req: Request, res: Response) => {
-  const user = req.body;
-  const result = await UserService.createFaculty(user);
+  const { faculty, ...userData } = req.body;
+  const result = await UserService.createFaculty(faculty, userData);
 
   sendReponse<IUser>(res, {
     success: true,
