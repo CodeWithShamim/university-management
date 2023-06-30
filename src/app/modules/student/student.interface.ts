@@ -34,7 +34,7 @@ export type IStudent = {
   email: string;
   presentAddress: string;
   permanentAddress: string;
-  bloodGroup: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
+  bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
 
   guardian: Guardian;
   localGuardian: LocalGuardian;
