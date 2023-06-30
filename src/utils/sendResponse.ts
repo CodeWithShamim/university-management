@@ -12,7 +12,7 @@ type IApiResponse<T> = {
   data?: T | null;
 };
 
-const sendReponse = <T>(res: Response, data: IApiResponse<T>): void => {
+const sendResponse = <T>(res: Response, data: IApiResponse<T>): void => {
   const responseData: IApiResponse<T> = {
     success: data.success,
     statusCode: data.statusCode,
@@ -24,4 +24,4 @@ const sendReponse = <T>(res: Response, data: IApiResponse<T>): void => {
   res.status(data.statusCode).json(responseData);
 };
 
-export default sendReponse;
+export default sendResponse;

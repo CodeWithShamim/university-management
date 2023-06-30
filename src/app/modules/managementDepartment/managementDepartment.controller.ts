@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { paginationsFields } from '../../../constants/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
-import sendReponse from '../../../utils/sendResponse';
+import sendResponse from '../../../utils/sendResponse';
 import { managementDepartmentFilterableFields } from './managementDepartment.constant';
 import { IManagementDepartment } from './managementDepartment.inerface';
 import { ManagementDepartmentService } from './managementDepartment.service';
@@ -14,7 +14,7 @@ const createDepartment = catchAsync(async (req: Request, res: Response) => {
     departmentData
   );
 
-  sendReponse<IManagementDepartment>(res, {
+  sendResponse<IManagementDepartment>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Management department created successfully',
@@ -31,7 +31,7 @@ const getAllDepartments = catchAsync(async (req: Request, res: Response) => {
     paginationOptions
   );
 
-  sendReponse<IManagementDepartment[]>(res, {
+  sendResponse<IManagementDepartment[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Management departments retrieved successfully',
@@ -44,7 +44,7 @@ const getSingleDepartment = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
   const result = await ManagementDepartmentService.getSingleDepartment(id);
 
-  sendReponse<IManagementDepartment>(res, {
+  sendResponse<IManagementDepartment>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Management department retieved successfully',
@@ -61,7 +61,7 @@ const updateDepartment = catchAsync(
       updatedData
     );
 
-    sendReponse<IManagementDepartment>(res, {
+    sendResponse<IManagementDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'Management department updated successfully',
@@ -74,7 +74,7 @@ const deleteDepartment = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
   const result = await ManagementDepartmentService.deleteDepartment(id);
 
-  sendReponse<IManagementDepartment>(res, {
+  sendResponse<IManagementDepartment>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Management department deleted successfully',

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import catchAsync from '../../../utils/catchAsync';
-import sendReponse from '../../../utils/sendResponse';
+import sendResponse from '../../../utils/sendResponse';
 import { IUser } from './user.interface';
 import { UserService } from './user.service';
 
@@ -9,7 +9,7 @@ const createStudent = catchAsync(async (req: Request, res: Response) => {
   const { student, ...userData } = req.body;
   const result = await UserService.createStudent(student, userData);
 
-  sendReponse<IUser>(res, {
+  sendResponse<IUser>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Student created successfully !',
@@ -21,7 +21,7 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
   const { faculty, ...userData } = req.body;
   const result = await UserService.createFaculty(faculty, userData);
 
-  sendReponse<IUser>(res, {
+  sendResponse<IUser>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Faculty created successfully !',
@@ -33,7 +33,7 @@ const createAdmin = catchAsync(async (req: Request, res: Response) => {
   const { admin, ...userData } = req.body;
   const result = await UserService.createAdmin(admin, userData);
 
-  sendReponse<IUser>(res, {
+  sendResponse<IUser>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Admin created successfully !',

@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { paginationsFields } from '../../../constants/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
-import sendReponse from '../../../utils/sendResponse';
+import sendResponse from '../../../utils/sendResponse';
 import { facultyFilterableFields } from './faculty.constant';
 import { IFaculty } from './faculty.interface';
 import { FacultyService } from './faculty.service';
@@ -17,7 +17,7 @@ const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
     paginationOptions
   );
 
-  sendReponse<IFaculty[]>(res, {
+  sendResponse<IFaculty[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Faculties retrieved successfully!',
@@ -30,7 +30,7 @@ const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await FacultyService.getSingleFaculty(id);
 
-  sendReponse<IFaculty>(res, {
+  sendResponse<IFaculty>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Faculty retrieved successfully!',
@@ -42,7 +42,7 @@ const deleteFaculty = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await FacultyService.deleteFaculty(id);
 
-  sendReponse<IFaculty>(res, {
+  sendResponse<IFaculty>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Faculty deleted successfully!',
@@ -55,7 +55,7 @@ const updateFaculty = catchAsync(async (req: Request, res: Response) => {
   const updatedData = req.body;
   const result = await FacultyService.updateFaculty(id, updatedData);
 
-  sendReponse<IFaculty>(res, {
+  sendResponse<IFaculty>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Faculty updated successfully!',

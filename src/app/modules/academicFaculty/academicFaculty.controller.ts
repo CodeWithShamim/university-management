@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { paginationsFields } from '../../../constants/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
-import sendReponse from '../../../utils/sendResponse';
+import sendResponse from '../../../utils/sendResponse';
 import { academicFacultyFilterableFields } from './academicFaculty.constant';
 import { IAcademicFaculty } from './academicFaculty.interface';
 import { AcademicFacultyService } from './academicFaculty.service';
@@ -13,7 +13,7 @@ const createAcademicFaculty = catchAsync(
     const data = req.body;
     const result = await AcademicFacultyService.createAcademicFaculty(data);
 
-    sendReponse<IAcademicFaculty>(res, {
+    sendResponse<IAcademicFaculty>(res, {
       success: true,
       statusCode: httpStatus.OK,
       message: 'Academic Faculty created successfully!',
@@ -31,7 +31,7 @@ const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
     filters
   );
 
-  sendReponse<IAcademicFaculty[]>(res, {
+  sendResponse<IAcademicFaculty[]>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Academic Faculties retrieved successfully!',
@@ -44,7 +44,7 @@ const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await AcademicFacultyService.getSingleFaculty(id);
 
-  sendReponse<IAcademicFaculty>(res, {
+  sendResponse<IAcademicFaculty>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Academic Faculty retrieved successfully!',
@@ -57,7 +57,7 @@ const updateFaculty = catchAsync(async (req: Request, res: Response) => {
   const updatedData = req.body;
   const result = await AcademicFacultyService.updateFaculty(id, updatedData);
 
-  sendReponse<IAcademicFaculty>(res, {
+  sendResponse<IAcademicFaculty>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Faculty updated successfully!',
@@ -69,7 +69,7 @@ const deleteFaculty = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await AcademicFacultyService.deleteFaculty(id);
 
-  sendReponse<IAcademicFaculty>(res, {
+  sendResponse<IAcademicFaculty>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Faculty deleted successfully!',

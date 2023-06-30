@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { paginationsFields } from '../../../constants/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
-import sendReponse from '../../../utils/sendResponse';
+import sendResponse from '../../../utils/sendResponse';
 import { academicDepartmentFilterableFields } from './academicDepartment.constant';
 import { IAcademicDepartment } from './academicDepartment.interface';
 import { AcademicDepartmentService } from './academicDepartment.service';
@@ -15,7 +15,7 @@ const createAcademicDepartment = catchAsync(
       data
     );
 
-    sendReponse<IAcademicDepartment>(res, {
+    sendResponse<IAcademicDepartment>(res, {
       success: true,
       statusCode: httpStatus.OK,
       message: 'Academic Department created successfully!',
@@ -33,7 +33,7 @@ const getAllDepartments = catchAsync(async (req: Request, res: Response) => {
     filters
   );
 
-  sendReponse<IAcademicDepartment[]>(res, {
+  sendResponse<IAcademicDepartment[]>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Academic Departments retrieved successfully!',
@@ -46,7 +46,7 @@ const getSingleDepartment = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await AcademicDepartmentService.getSingleDepartment(id);
 
-  sendReponse<IAcademicDepartment>(res, {
+  sendResponse<IAcademicDepartment>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Academic Department retrieved successfully!',
@@ -62,7 +62,7 @@ const updateDepartment = catchAsync(async (req: Request, res: Response) => {
     updatedData
   );
 
-  sendReponse<IAcademicDepartment>(res, {
+  sendResponse<IAcademicDepartment>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Department updated successfully!',
@@ -74,7 +74,7 @@ const deleteDepartment = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await AcademicDepartmentService.deleteDepartment(id);
 
-  sendReponse<IAcademicDepartment>(res, {
+  sendResponse<IAcademicDepartment>(res, {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Department deleted successfully!',
