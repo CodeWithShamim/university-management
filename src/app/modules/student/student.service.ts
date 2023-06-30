@@ -58,6 +58,15 @@ const getAllStudents = async (
   };
 };
 
+const getSingleStudent = async (id: string): Promise<IStudent | null> => {
+  const student = await Student.findById(id)
+    .populate('academicSemester')
+    .populate('academicDepartment')
+    .populate('academicFaculty');
+  return student;
+};
+
 export const StudentService = {
   getAllStudents,
+  getSingleStudent,
 };
