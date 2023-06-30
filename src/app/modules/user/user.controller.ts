@@ -30,8 +30,8 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
 });
 
 const createAdmin = catchAsync(async (req: Request, res: Response) => {
-  const user = req.body;
-  const result = await UserService.createAdmin(user);
+  const { admin, ...userData } = req.body;
+  const result = await UserService.createAdmin(admin, userData);
 
   sendReponse<IUser>(res, {
     success: true,

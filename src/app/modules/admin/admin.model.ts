@@ -1,8 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
 import { BloodGroup, Gender } from '../user/user.constant';
-import { IStudent, IStudentModel } from './admin.interface';
+import { IAdmin, IAdminModel } from './admin.interface';
 
-const studentSchema = new Schema<IStudent, IStudentModel>(
+const adminSchema = new Schema<IAdmin, IAdminModel>(
   {
     id: {
       type: String,
@@ -58,71 +58,11 @@ const studentSchema = new Schema<IStudent, IStudentModel>(
       enum: BloodGroup,
     },
 
-    guardian: {
+    destination: {
+      type: String,
       required: true,
-      type: {
-        fatherName: {
-          type: String,
-          required: true,
-        },
-        fatherOccupation: {
-          type: String,
-          required: true,
-        },
-        fatherContactNo: {
-          type: String,
-          required: true,
-        },
-        motherName: {
-          type: String,
-          required: true,
-        },
-        motherOccupation: {
-          type: String,
-          required: true,
-        },
-        motherContactNo: {
-          type: String,
-          required: true,
-        },
-        address: {
-          type: String,
-          required: true,
-        },
-      },
     },
-    localGuardian: {
-      required: true,
-      type: {
-        name: {
-          type: String,
-          required: true,
-        },
-        occupation: {
-          type: String,
-          required: true,
-        },
-        contactNo: {
-          type: String,
-          required: true,
-        },
-        address: {
-          type: String,
-          required: true,
-        },
-      },
-    },
-    academicSemester: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: 'AcademicSemester',
-    },
-    academicFaculty: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: 'AcademicFaculty',
-    },
-    academicDepartment: {
+    managementDepartment: {
       type: Schema.Types.ObjectId,
       required: true,
       ref: 'AcademicDepartment',
@@ -137,9 +77,6 @@ const studentSchema = new Schema<IStudent, IStudentModel>(
   }
 );
 
-const Student = mongoose.model<IStudent, IStudentModel>(
-  'Student',
-  studentSchema
-);
+const Admin = mongoose.model<IAdmin, IAdminModel>('Admin', adminSchema);
 
-export default Student;
+export default Admin;

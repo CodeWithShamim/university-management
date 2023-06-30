@@ -4,68 +4,65 @@ import { paginationsFields } from '../../../constants/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
 import sendReponse from '../../../utils/sendResponse';
-import { studentFilterableFields } from './admin.constant';
-import { IStudent } from './admin.interface';
-import { StudentService } from './admin.service';
+import { adminFilterableFields } from './admin.constant';
+import { IAdmin } from './admin.interface';
+import { AdminService } from './admin.service';
 
-const getAllStudents = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.query, studentFilterableFields);
+const getAllAdmins = catchAsync(async (req: Request, res: Response) => {
+  const filters = pick(req.query, adminFilterableFields);
   const paginationOptions = pick(req.query, paginationsFields);
 
-  const result = await StudentService.getAllStudents(
-    filters,
-    paginationOptions
-  );
+  const result = await AdminService.getAllAdmins(filters, paginationOptions);
 
-  sendReponse<IStudent[]>(res, {
+  sendReponse<IAdmin[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Students retrieved successfully!',
+    message: 'Admins retrieved successfully!',
     meta: result.meta,
     data: result.result,
   });
 });
 
-const getSingleStudent = catchAsync(async (req: Request, res: Response) => {
+const getSingleAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await StudentService.getSingleStudent(id);
+  const result = await AdminService.getSingleAdmin(id);
 
-  sendReponse<IStudent>(res, {
+  sendReponse<IAdmin>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Student retrieved successfully!',
+    message: 'Admin retrieved successfully!',
     data: result,
   });
 });
 
-const deleteStudent = catchAsync(async (req: Request, res: Response) => {
+const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await StudentService.deleteStudent(id);
+  const result = await AdminService.deleteAdmin(id);
 
-  sendReponse<IStudent>(res, {
+  sendReponse<IAdmin>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Student deleted successfully!',
+    message: 'Admin deleted successfully!',
     data: result,
   });
 });
 
-const updateStudent = catchAsync(async (req: Request, res: Response) => {
+const updateAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const updatedData = req.body;
-  const result = await StudentService.updateStudent(id, updatedData);
+  const result = await AdminService.updateAdmin(id, updatedData);
 
-  sendReponse<IStudent>(res, {
+  sendReponse<IAdmin>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Student updated successfully!',
+    message: 'Admin updated successfully!',
     data: result,
   });
 });
 
-export const StudentController = {
-  getAllStudents,
-  getSingleStudent,
-  deleteStudent,
-  updateStudent,
+export const AdminController = {
+  getAllAdmins,
+  getSingleAdmin,
+  deleteAdmin,
+  updateAdmin,
 };

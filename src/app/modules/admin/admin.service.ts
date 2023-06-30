@@ -3,14 +3,14 @@ import {
   IPaginationOptions,
   IPaginationResponse,
 } from '../../../interfaces/pagination';
-import { studentSearchableFields } from './admin.constant';
-import { IStudent, IStudentFilters } from './admin.interface';
-import Student from './admin.model';
+import { adminSearchableFields } from './admin.constant';
+import { IAdmin, IAdminFilters } from './admin.interface';
+import Admin from './admin.model';
 
-const getAllStudents = async (
-  filters: IStudentFilters,
+const getAllAdmins = async (
+  filters: IAdminFilters,
   paginationOptions: IPaginationOptions
-): Promise<IPaginationResponse<IStudent[]>> => {
+): Promise<IPaginationResponse<IAdmin[]>> => {
   const { searchTerm, ...filtersData } = filters;
   const { page, limit, skip, sortCondition } =
     calculatePagination(paginationOptions);
@@ -19,7 +19,7 @@ const getAllStudents = async (
 
   if (searchTerm) {
     andConditions.push({
-      $or: studentSearchableFields.map(field => ({
+      $or: adminSearchableFields.map(field => ({
         [field]: {
           $regex: searchTerm,
           $options: 'i',
@@ -38,15 +38,13 @@ const getAllStudents = async (
 
   const whereConditions = andConditions.length ? { $and: andConditions } : {};
 
-  const result = await Student.find(whereConditions)
-    .populate('academicSemester')
-    .populate('academicDepartment')
-    .populate('academicFaculty')
+  const result = await Admin.find(whereConditions)
+    .populate('managementDepartment')
     .sort(sortCondition)
     .skip(skip)
     .limit(limit);
 
-  const total = await Student.countDocuments(whereConditions);
+  const total = await Admin.countDocuments(whereConditions);
 
   return {
     meta: {
@@ -58,39 +56,32 @@ const getAllStudents = async (
   };
 };
 
-const getSingleStudent = async (id: string): Promise<IStudent | null> => {
-  const student = await Student.findById(id)
-    .populate('academicSemester')
-    .populate('academicDepartment')
-    .populate('academicFaculty');
-  return student;
+const getSingleAdmin = async (id: string): Promise<IAdmin | null> => {
+  const admin = await Admin.findById(id).populate('managementDepartment');
+  return admin;
 };
 
-const deleteStudent = async (id: string): Promise<IStudent | null> => {
-  const student = await Student.findOneAndDelete({ _id: id })
-    .populate('academicSemester')
-    .populate('academicDepartment')
-    .populate('academicFaculty');
-  return student;
+const deleteAdmin = async (id: string): Promise<IAdmin | null> => {
+  const admin = await Admin.findOneAndDelete({ _id: id }).populate(
+    'managementDepartment'
+  );
+  return admin;
 };
 
-const updateStudent = async (
+const updateAdmin = async (
   id: string,
-  payload: Partial<IStudent>
-): Promise<IStudent | null> => {
-  const student = await Student.findOneAndUpdate({ _id: id }, payload, {
+  payload: Partial<IAdmin>
+): Promise<IAdmin | null> => {
+  const admin = await Admin.findOneAndUpdate({ _id: id }, payload, {
     new: true,
     runValidators: true,
-  })
-    .populate('academicSemester')
-    .populate('academicDepartment')
-    .populate('academicFaculty');
-  return student;
+  }).populate('managementDepartment');
+  return admin;
 };
 
-export const StudentService = {
-  getAllStudents,
-  getSingleStudent,
-  deleteStudent,
-  updateStudent,
+export const AdminService = {
+  getAllAdmins,
+  getSingleAdmin,
+  deleteAdmin,
+  updateAdmin,
 };
