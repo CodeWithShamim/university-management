@@ -6,34 +6,9 @@
     "auditLog": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\.bdcfd014e92f44f83877ae5e88cc408a6311a592-audit.json",
     "files": [
         {
-            "date": 1688129390873,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-30-18-ERROR.log",
-            "hash": "9ccca8ebc51d954a299f632b50346003cb64ae8be18921945b41ba0b0d39519f"
-        },
-        {
-            "date": 1688130662830,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-30-19-ERROR.log",
-            "hash": "d9848b4f76e2fb4b07b7219cfb5bf1d205fb685df1ccd2ce78bf1eb80412a27f"
-        },
-        {
-            "date": 1688134805441,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-30-20-ERROR.log",
-            "hash": "cf43920b471130e06d5c6b1f239a9e2bbc12bd0b22f2988aad3b1ad9e7e4b20e"
-        },
-        {
-            "date": 1688145214305,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-06-30-23-ERROR.log",
-            "hash": "07e6dd819b0b7828fb1e7171329fb47314e04639f364b988ae5d45047ed7fff5"
-        },
-        {
-            "date": 1688149281065,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-07-01-00-ERROR.log",
-            "hash": "2da257a0375bca331419f85abc06a71ec3200610fd822df3e449517aa3493f69"
-        },
-        {
-            "date": 1688151662582,
-            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-07-01-01-ERROR.log",
-            "hash": "c7f7c441d9ceffb906cd1a2aa2130cfd07438220829d9694f809a1f11f1f3f69"
+            "date": 1688536394149,
+            "name": "C:\\Users\\shami\\Downloads\\New folder\\university-management\\logs\\winston\\errors\\UM--2023-07-05-11-ERROR.log",
+            "hash": "0362a5a61c81e4f7b1bd2a19230be488f863c14d7eea4d80242c78e47d99d798"
         }
     ],
     "hashType": "sha256"
