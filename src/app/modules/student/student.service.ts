@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import httpStatus from 'http-status';
+import ApiError from '../../../errors/ApiError';
 import calculatePagination from '../../../helpers/calculatePagination';
 import {
   IPaginationOptions,
@@ -78,6 +81,45 @@ const updateStudent = async (
   id: string,
   payload: Partial<IStudent>
 ): Promise<IStudent | null> => {
+  // check student exist
+  const isExist = await Student.findById(id);
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Student does not exist!');
+  }
+
+  const { name, guardian, localGuardian, ...studentData } = payload;
+
+  const updatedStudentData: Partial<IStudent> = { ...studentData };
+
+  // handle name object dynamically
+  if (name && Object.keys(name).length) {
+    Object.keys(name).forEach(key => {
+      const nameKey = `name.${key}`;
+      (updatedStudentData as any)[nameKey] = name[key as keyof typeof name];
+    });
+  }
+
+  // handle guardian object dynamically
+  if (guardian && Object.keys(guardian).length) {
+    Object.keys(guardian).forEach(key => {
+      const guardianKey = `guardian.${key}`;
+      (updatedStudentData as any)[guardianKey] =
+        guardian[key as keyof typeof guardian];
+    });
+  }
+
+  // handle local guardian object dynamically
+  if (localGuardian && Object.keys(localGuardian).length) {
+    Object.keys(localGuardian).forEach(key => {
+      const localGuardianKey = `localGuardian.${key}`;
+      (updatedStudentData as any)[localGuardianKey] =
+        localGuardian[key as keyof typeof localGuardian];
+    });
+  }
+
+  console.log(updatedStudentData, 'updatedStudentData');
+
   const student = await Student.findOneAndUpdate({ _id: id }, payload, {
     new: true,
     runValidators: true,
