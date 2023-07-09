@@ -118,12 +118,14 @@ const updateStudent = async (
     });
   }
 
-  console.log(updatedStudentData, 'updatedStudentData');
-
-  const student = await Student.findOneAndUpdate({ _id: id }, payload, {
-    new: true,
-    runValidators: true,
-  })
+  const student = await Student.findOneAndUpdate(
+    { _id: id },
+    updatedStudentData,
+    {
+      new: true,
+      runValidators: true,
+    }
+  )
     .populate('academicSemester')
     .populate('academicDepartment')
     .populate('academicFaculty');
