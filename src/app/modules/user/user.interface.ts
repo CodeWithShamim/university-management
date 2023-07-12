@@ -11,4 +11,13 @@ export type IUser = {
   admin?: Types.ObjectId;
 };
 
-export type UserModel = Model<IUser, Record<string, unknown>>;
+export type UserModel = {
+  isUserExist(
+    id: string
+  ): Promise<Pick<IUser, 'id' | 'role' | 'password' | 'needPasswordChange'>>;
+
+  isPasswordMatched(
+    givenPassword: string,
+    savedPassword: string
+  ): Promise<boolean>;
+} & Model<IUser>;
