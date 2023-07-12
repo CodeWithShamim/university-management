@@ -61,8 +61,8 @@ userSchema.statics.isUserExist = async function (
 
 // check password matched
 userSchema.statics.isPasswordMatched = async function (
-  savedPassword: string,
-  givenPassword: string
+  givenPassword: string,
+  savedPassword: string
 ): Promise<boolean> {
   return await bcrypt.compare(givenPassword, savedPassword);
 };

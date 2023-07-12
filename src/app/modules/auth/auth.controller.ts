@@ -16,7 +16,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     secure: config.node_env === 'production',
     httpOnly: true,
   };
-  req.cookies('refreshToken', refreshToken, cookieOptions);
+  res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse<ILoginUserResponse>(res, {
     success: true,
