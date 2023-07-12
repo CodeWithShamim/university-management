@@ -20,7 +20,10 @@ async function main() {
   });
 }
 
-main().catch(err => errorLogger.error(err.message));
+main().catch(err => {
+  console.log(err);
+  errorLogger.error(err.message);
+});
 
 // gracefully close server
 process.on('unhandledRejection', error => {
