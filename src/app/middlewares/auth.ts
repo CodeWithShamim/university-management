@@ -20,6 +20,9 @@ const auth = (...roles: string[]) =>
         config.jwt.secret as Secret
       );
 
+      // set token info into req.user
+      req.user = verifyToken;
+
       if (!roles.includes(verifyToken.role)) {
         throw new ApiError(httpStatus.FORBIDDEN, 'Forbidden access');
       }
