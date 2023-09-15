@@ -6,7 +6,7 @@ import handleCastError from '../../errors/handleCastError';
 import handleValidationError from '../../errors/handleValidationError';
 import handleZodError from '../../errors/handleZodError';
 import { IGenericErrorMessage } from '../../interfaces/error';
-import { errorLogger } from '../../logger';
+// import { errorLogger } from '../../logger';
 
 const globalErrorHandler: ErrorRequestHandler = (
   error,
@@ -14,9 +14,7 @@ const globalErrorHandler: ErrorRequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  config.node_env !== 'production'
-    ? console.log('Global error hander', error)
-    : errorLogger.error(error);
+  config.node_env !== 'production' && console.log('Global error hander', error);
 
   let statusCode = 500;
   let message = 'Something went wrong';
