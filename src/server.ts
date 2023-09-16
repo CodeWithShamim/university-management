@@ -3,6 +3,7 @@ import app from './app';
 import config from './config';
 // import { errorLogger, logger } from './logger';
 import dbConnection from './utils/dbConnect';
+import { RedisClient } from './utils/redis';
 let server: Server;
 
 // uncaughtException
@@ -13,6 +14,7 @@ process.on('uncaughtException', error => {
 });
 
 async function main() {
+  await RedisClient.connect();
   await dbConnection();
 
   server = app.listen(config.port, () => {
