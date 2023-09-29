@@ -22,6 +22,7 @@ const createAcademicSemester = async (
     throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code!');
   }
   const academicSemester = await AcademicSemester.create(payload);
+
   return academicSemester;
 };
 
@@ -99,13 +100,14 @@ const updateSemester = async (
   }
 
   const semester = await AcademicSemester.findOneAndUpdate(
-    { _id: id },
+    { syncId: id },
     payload,
     {
       new: true,
       runValidators: true,
     }
   );
+
   return semester;
 };
 
